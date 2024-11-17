@@ -110,6 +110,8 @@ platformdirs==4.3.6
     #   reflex-hosting-cli
 psutil==6.1.0
     # via reflex
+psycopg2-binary==2.9.10
+    # via reflex-shorturl (pyproject.toml)
 pycparser==2.22
     # via cffi
 pydantic==2.9.2

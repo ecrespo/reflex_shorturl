@@ -1,7 +1,32 @@
 services:
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    networks:
+      - reflex_shorturl
+    ports:
+      - '6379:6379'
+  db:
+    image: postgres:latest
+    container_name: db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    networks:
+      - reflex_shorturl
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./db:/var/lib/postgresql/data
   backend:
     build:
       dockerfile: Dockerfile
+    container_name: backend
+    networks:
+      - reflex_shorturl
     ports:
      - 8000:8000
     depends_on:
@@ -10,20 +35,14 @@ services:
   frontend:
     build:
       dockerfile: web.Dockerfile
+    container_name: frontend
+    networks:
+      - reflex_shorturl
     ports:
       - 3000:80
     depends_on:
       - backend
-  redis:
-    image: redis
-  database:
-    image: postgres:latest
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
-    ports:
-      - '5432:5432'
-    volumes:
-      - ./db:/var/lib/postgresql/data
+
+networks:
+  reflex_shorturl:
+    driver: bridge

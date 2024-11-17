@@ -1,7 +1,7 @@
 """Welcome to Reflex! This file outlines the steps to create a basic app."""
 
 import reflex as rx
-from reflex_shorturl.api.api import hello, shorten_url
+from reflex_shorturl.api.api import hello, shorten_url, create_short_url, redirect_to_url, get_stats
 from reflex_shorturl.components.form import contact_form, FormState
 from reflex_qrcode import QRCode
 
@@ -49,4 +49,7 @@ def index() -> rx.Component:
 app = rx.App()
 app.add_page(index)
 app.api.add_api_route("/hello", hello, methods=["GET"])
-app.api.add_api_route("/shorten", shorten_url, methods=["POST"])
+app.api.add_api_route("/shorten_url", shorten_url, methods=["POST"])
+app.api.add_api_route("/shorten", create_short_url, methods=["POST"])
+app.api.add_api_route("/{short_code}", redirect_to_url, methods=["GET"])
+app.api.add_api_route("/stats/{short_code}", get_stats, methods=["GET"])
