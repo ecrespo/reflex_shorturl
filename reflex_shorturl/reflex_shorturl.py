@@ -1,14 +1,18 @@
 """Welcome to Reflex! This file outlines the steps to create a basic app."""
 
 import reflex as rx
+from reflex_shorturl.api.api import hello, shorten_url
+from reflex_shorturl.components.form import contact_form, FormState
+from reflex_qrcode import QRCode
 
 from rxconfig import config
 
 
 class State(rx.State):
     """The app state."""
-
-    ...
+    @rx.var
+    def say_hello(self) -> str:
+        return hello()
 
 
 def index() -> rx.Component:
@@ -16,16 +20,23 @@ def index() -> rx.Component:
     return rx.container(
         rx.color_mode.button(position="top-right"),
         rx.vstack(
-            rx.heading("Welcome to Reflex!", size="9"),
-            rx.text(
-                "Get started by editing ",
-                rx.code(f"{config.app_name}/{config.app_name}.py"),
-                size="5",
+            rx.heading("Welcome to short URL!", size="9"),
+            rx.hstack(
+                contact_form(),
+                QRCode(
+                    title="Shorten URL",
+                    value=FormState.short_url
+                ),
             ),
-            rx.link(
-                rx.button("Check out our docs!"),
-                href="https://reflex.dev/docs/getting-started/introduction/",
-                is_external=True,
+            rx.flex(
+                rx.text("Shorten URL"),
+                rx.link(FormState.short_url, href=FormState.short_url, is_external=True),
+                spacing="3",
+                flex_direction=[
+                    "column",
+                    "row",
+                    "row",
+                ],
             ),
             spacing="5",
             justify="center",
@@ -37,3 +48,5 @@ def index() -> rx.Component:
 
 app = rx.App()
 app.add_page(index)
+app.api.add_api_route("/hello", hello, methods=["GET"])
+app.api.add_api_route("/shorten", shorten_url, methods=["POST"])

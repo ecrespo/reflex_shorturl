@@ -371,6 +371,7 @@ $tf/
 .fake/
 .history/
 .hypothesis/
+.idea/*
 .idea/**/aws.xml
 .idea/**/contentModel.xml
 .idea/**/dataSources.ids
@@ -390,6 +391,8 @@ $tf/
 .idea/**/workspace.xml
 .idea/caches/build_file_checksums.ser
 .idea/httpRequests
+.idea/inspectionProfiles/*
+.idea/reflex_shorturl.iml
 .idea/replstate.xml
 .idea/sonarlint/
 .idea_modules/
@@ -556,6 +559,3 @@ x64/
 x86/
 zsdoc/data
 ~$*
-.idea/reflex_shorturl.iml
-.idea/inspectionProfiles/*
-.idea/*
