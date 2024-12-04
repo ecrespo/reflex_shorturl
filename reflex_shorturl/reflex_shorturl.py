@@ -3,7 +3,7 @@
 import reflex as rx
 from reflex_shorturl.api.api import hello, shorten_url
 from reflex_shorturl.components.form import contact_form, FormState
-from reflex_qrcode import QRCode
+
 
 from rxconfig import config
 
@@ -21,13 +21,7 @@ def index() -> rx.Component:
         rx.color_mode.button(position="top-right"),
         rx.vstack(
             rx.heading("Welcome to short URL!", size="9"),
-            rx.hstack(
-                contact_form(),
-                QRCode(
-                    title="Shorten URL",
-                    value=FormState.short_url
-                ),
-            ),
+            contact_form(),
             rx.flex(
                 rx.text("Shorten URL"),
                 rx.link(FormState.short_url, href=FormState.short_url, is_external=True),

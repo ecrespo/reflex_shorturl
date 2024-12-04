@@ -7,6 +7,6 @@ def hello() -> str:
     return "Hello World!"
 
 
-def shorten_url(long_url):
+def shorten_url(long_url:str):
     response = requests.get(url + long_url)
     return response.text

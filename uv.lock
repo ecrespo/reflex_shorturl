@@ -722,7 +722,7 @@ wheels = [
 
 [[package]]
 name = "reflex"
-version = "0.6.4"
+version = "0.6.6"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "alembic" },
@@ -751,13 +751,14 @@ dependencies = [
     { name = "tomlkit" },
     { name = "twine" },
     { name = "typer" },
+    { name = "typing-extensions" },
     { name = "uvicorn" },
     { name = "wheel" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/21/55/57bbde4a9245dd4730761a174ded9ece4c5c7a3b1a4c5fc3049b46f7b135/reflex-0.6.4.tar.gz", hash = "sha256:fe781908c8c35839c34dbb60c525d33a7ad3baae8eb052c5400bcde2c18cfed7", size = 491822 }
+sdist = { url = "https://files.pythonhosted.org/packages/b5/97/f27d2a33b55b8e01edfda5d2bc08c3c72029ded2745f9471df799b1d46be/reflex-0.6.6.tar.gz", hash = "sha256:9aaca9d97bebecb79763b17e89f729bed710e01defce704f52f41decb5822392", size = 515690 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/01/a6/882512861d160492f8710bfe8ed706bf2fb943f617bacacb005135351ab5/reflex-0.6.4-py3-none-any.whl", hash = "sha256:fc066b25c837b094deb38e67707733b4426ac7d6a8d6e935b604587ef8a0269e", size = 727506 },
+    { url = "https://files.pythonhosted.org/packages/ce/40/20ad062e3a462ebdaa94af3ab057dc9427a2c8dfffcb45da50496a4ad4b9/reflex-0.6.6-py3-none-any.whl", hash = "sha256:95bfab83d0db45148641b0e3307f7097c2558a50d203d34034a159e1cc57ed09", size = 758612 },
 ]
 
 [[package]]
@@ -774,7 +775,7 @@ wheels = [
 
 [[package]]
 name = "reflex-hosting-cli"
-version = "0.1.15"
+version = "0.1.23"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "charset-normalizer" },
@@ -788,21 +789,9 @@ dependencies = [
     { name = "typer" },
     { name = "websockets" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/1a/74/50b95d184887c9ab5b058572eb5548486503e88ca56b916d280e4fdfc910/reflex_hosting_cli-0.1.15.tar.gz", hash = "sha256:42a2a030b8bfba728cbd2c5cc37df0fcc8c2966efc649c57806c6616efb994c4", size = 44480 }
+sdist = { url = "https://files.pythonhosted.org/packages/16/90/a05bd7fc34140f785fec880e381c7dfd83f7095f263131ab75169780cc23/reflex_hosting_cli-0.1.23.tar.gz", hash = "sha256:91dd9cea3ec5b8751eed0b96794a9df2023b5fefdad68cb0c4af37755152f403", size = 46898 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f7/c1/10e4d6903c5d6eb1e3d1895a279cf889f5131b5a8fa5bf59bdd907ca57e5/reflex_hosting_cli-0.1.15-py3-none-any.whl", hash = "sha256:c471f5570b8797e290844edcc079241aa27457112c01188dc0f8a5ccc2364003", size = 51408 },
-]
-
-[[package]]
-name = "reflex-qrcode"
-version = "0.0.1"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "reflex" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/02/70/1a2eb045bb77f7f10ced42df059bcd7355ba58e183a83c4897e2d1e4cac8/reflex_qrcode-0.0.1.tar.gz", hash = "sha256:667593c1ab19863b8bc00508c9d1fefce4529b726832fa1a77cf60574f2e0911", size = 2131 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/25/dc/73c2952beb5e85ff74d64cd418cf8efecb4638423410df13c917b2f6572d/reflex_qrcode-0.0.1-py3-none-any.whl", hash = "sha256:1ec680b58f6a349fa7a5445ca8673debc9833ff5db8ba0e1175217cd36a567ae", size = 2295 },
+    { url = "https://files.pythonhosted.org/packages/d7/f5/1594a040d784b3e7263600b6f5a15b4e733f563442d1e464cceabd6e3fb5/reflex_hosting_cli-0.1.23-py3-none-any.whl", hash = "sha256:10228c12a5f705b16be0856cce519ebf1c75fba7e23a6b9c8d18f30fd4dd3c60", size = 54066 },
 ]
 
 [[package]]
@@ -811,14 +800,12 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "reflex" },
-    { name = "reflex-qrcode" },
     { name = "requests" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "reflex", specifier = ">=0.6.4" },
-    { name = "reflex-qrcode", specifier = ">=0.0.1" },
+    { name = "reflex", specifier = ">=0.6.6" },
     { name = "requests", specifier = ">=2.32.3" },
 ]
 
