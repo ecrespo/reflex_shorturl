@@ -146,11 +146,14 @@ reflex==0.6.6.post2
     # via
     #   reflex-shorturl (pyproject.toml)
     #   reflex-chakra
+    #   reflex-icons
     #   reflex-qrcode
 reflex-chakra==0.6.2
     # via reflex
 reflex-hosting-cli==0.1.29
     # via reflex
+reflex-icons==1.0.2
+    # via reflex-shorturl (pyproject.toml)
 reflex-qrcode==0.0.1
     # via reflex-shorturl (pyproject.toml)
 requests==2.32.3

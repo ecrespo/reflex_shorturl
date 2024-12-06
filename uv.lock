@@ -807,6 +807,18 @@ wheels = [
 ]
 
 [[package]]
+name = "reflex-icons"
+version = "1.0.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "reflex" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/64/0c/68f0a8021c9665a0edfa8e3a0231193bd50d3d1f64ee68ee56e695134730/reflex-icons-1.0.2.tar.gz", hash = "sha256:6b95bc4ceef5d60ee8dd6914e376723385473b24db6097d6428e155c05674da3", size = 327287 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d7/a6/2dbbf4c6ccef06d0a12dcc2da59b2cf693d8149519228e28bd870845427f/reflex_icons-1.0.2-py3-none-any.whl", hash = "sha256:247b854838cf1265f25677ef18594ea97e1cf03d2e6804394950e4f43982592a", size = 326803 },
+]
+
+[[package]]
 name = "reflex-qrcode"
 version = "0.0.1"
 source = { registry = "https://pypi.org/simple" }
@@ -824,6 +836,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "reflex" },
+    { name = "reflex-icons" },
     { name = "reflex-qrcode" },
     { name = "requests" },
 ]
@@ -831,6 +844,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "reflex", specifier = ">=0.6.6" },
+    { name = "reflex-icons", specifier = ">=1.0.2" },
     { name = "reflex-qrcode", specifier = ">=0.0.1" },
     { name = "requests", specifier = ">=2.32.3" },
 ]

@@ -1,19 +1,7 @@
 import reflex as rx
-from reflex_shorturl.api.api import shorten_url
+from reflex_icons.MaterialDesignIcons import MdInsertLink
+from reflex_shorturl.states.formState import FormState
 
-class FormState(rx.State):
-    form_data: dict = {}
-
-    def handle_submit(self, form_data: dict):
-        """Handle the form submit."""
-        self.form_data = form_data
-        print(self.form_data)
-
-    @rx.var
-    def short_url(self) -> str:
-        long_url = self.form_data.get("long_url", "")
-        short_url = shorten_url(long_url)
-        return short_url
 
 def form_field(
     label: str, placeholder: str, type: str, name: str
@@ -40,7 +28,8 @@ def contact_form() -> rx.Component:
         rx.flex(
             rx.hstack(
                 rx.badge(
-                    rx.icon(tag="link", size=32),
+                    MdInsertLink(),
+                    #rx.icon(tag="link", size=32),
                     color_scheme="blue",
                     radius="full",
                     padding="0.65rem",
