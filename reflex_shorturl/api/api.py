@@ -8,5 +8,6 @@ def hello() -> str:
 
 
 def shorten_url(long_url:str):
+
     response = requests.get(url + long_url)
     return response.text

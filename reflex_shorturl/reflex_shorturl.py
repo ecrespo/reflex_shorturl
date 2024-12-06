@@ -5,6 +5,7 @@ from reflex_shorturl.api.api import hello, shorten_url
 from reflex_shorturl.components.footer import footer
 from reflex_shorturl.components.form import contact_form, FormState
 from reflex_shorturl.components.navbar import navbar
+from reflex_qrcode import QRCode
 
 from rxconfig import config
 
@@ -25,10 +26,19 @@ def index() -> rx.Component:
         ),
         rx.vstack(
             rx.heading("Welcome to short URL!", size="9"),
-            contact_form(),
+            rx.hstack(
+                contact_form(),
+                rx.cond(FormState.short_url != "Error",
+                        QRCode(title=f"{FormState.short_url}",value=f"{FormState.short_url}", size=256, level="H")
+                ),
+            ),
             rx.flex(
-                rx.text("Shorten URL"),
-                rx.link(FormState.short_url, href=FormState.short_url, is_external=True),
+                rx.text("Shorten URL:"),
+                rx.cond(FormState.short_url == "Error",
+                        rx.text("No URL found",color_scheme="red"),
+                        rx.link(FormState.short_url, href=f"{FormState.short_url}", is_external=True),
+                        ),
+
                 spacing="3",
                 flex_direction=[
                     "column",
