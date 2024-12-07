@@ -5,7 +5,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    #"reflex-qrcode>=0.0.1",
+    "reflex-icons>=1.0.2",
+    "reflex-qrcode>=0.0.1",
     "reflex>=0.6.6",
     "requests>=2.32.3",
 ]
